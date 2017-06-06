@@ -1,5 +1,5 @@
 // Initial Array of cartoons
-var topics = ["Thundercats", "Bob's Burgers", "Adventure Time", "Scooby Doo", "The Powerpuff Girls", "Rugrats", "Doug", "Animaniacs", "He Man and The Masters of the Universe", "Captain Planet", "Spongebob Squarepants", "Cow and Chicken", "Johnny Bravo", "Space Ghost", "Hey, Arnold!", "Steven Universe", "Recess", "Jem", "Courage the Cowardly Dog"];
+var topics = ["Thundercats", "Bob's Burgers", "Adventure Time", "Scooby Doo", "The Powerpuff Girls", "Rugrats", "Doug", "Animaniacs", "He Man and The Masters of the Universe", "Captain Planet", "Spongebob Squarepants", "Cow and Chicken", "Johnny Bravo", "Space Ghost", "Hey, Arnold!", "Steven Universe", "Recess", "Jem", "Courage the Cowardly Dog", "Muppet Babies"];
 
 // functions to display the gifs and rating info
 function displayGifs(numGifs) {
