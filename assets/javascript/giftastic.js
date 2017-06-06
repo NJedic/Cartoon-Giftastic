@@ -36,11 +36,8 @@ function displayGifs(numGifs) {
 	 		gifsDiv.append(p);
 	 		// Appending the gifs to the DOM
 	  	$("#cartoonz").append(gifsDiv);
-  	
   	}
-
-  });
-
+	});
 }
 
 //Function for displaying movie data
