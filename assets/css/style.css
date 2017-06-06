@@ -35,4 +35,14 @@ label{
 	background-image: none;
 	background-color: #968ab8;
 	text-shadow: 1px 1px #b2c9bf;
+	margin-bottom: 10px;
+}
+
+/*gifs*/
+.gif{
+	float: left;
+	margin: 5px;
+}
+p{
+	font-family: 'Coiny', cursive;
 }

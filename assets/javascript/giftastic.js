@@ -8,24 +8,36 @@ function displayGifs(numGifs) {
   var newCartoon = $(this).attr("data-name");
   var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + newCartoon + "&limit=10&rating&api_key=dc6zaTOxFJmzC";
 
-  // Creating an AJAX call for the specific movie button being clicked
+  // Creating an AJAX call for the specific cartoon button being clicked
   $.ajax({
     url: queryURL,
     method: "GET"
   }).done(function(response) {
-  		console.log(response);
-  	
+  		// console.log(response);
   	// Clear the div of the previous gifs
   	$("#cartoonz").empty();
-
-  	// Storing the image response data
-  	var images = response.source_post_url;
-  	console.log(images);
-  	$("#cartoonz").html(images);
-  	// Creating a loop to run through the array and display the images
-  	// for (var j = 0; j < numGifs; j++){
-  		
-  	// }
+		// Storing the image response data
+  	var results = response.data
+  	// Making a loop to sort through all of the images
+ 		for (var i = 0; i < results.length; i++){
+ 			// Making a div to hold the gifs and giving it the class of "gif"
+	 		var gifsDiv = $("<div class='gif'>");
+	 		// Making a variable to represent the rating info for each gif
+	 		var rating = results[i].rating;
+	 		// Making a <p> to hold and display the rating info
+	 		var p = $("<p>").text("Rating: " + rating);
+	 		// Making the gifImage an image
+	 		var gifImage = $("<img>");
+	 		// Assigning a picture to the gifImage variable
+	 		gifImage.attr("src", results[i].images.fixed_height.url);
+	 		//Appending the gif image to the gifsDiv
+	 		gifsDiv.append(gifImage);
+	 		// Appending the Rating to each gif
+	 		gifsDiv.append(p);
+	 		// Appending the gifs to the DOM
+	  	$("#cartoonz").append(gifsDiv);
+  	
+  	}
 
   });
 
