@@ -90,7 +90,7 @@ $("#submit").on("click", function(event) {
 
 // This function handles the animation of the gifs
 function animateGifs(){
-  console.log("hi!");
+    // console.log("hi!");
   var state = $(this).attr("data-state");
   if (state == "still"){
     $(this).attr("src", $(this).attr("data-animate"));
