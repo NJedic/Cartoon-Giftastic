@@ -11,8 +11,9 @@ var topics = ["Thundercats", "Bob's Burgers", "Adventure Time", "Scooby Doo", "T
 // This function displays the gifs 
 function displayGifs(numGifs) {
 
-
+  // Setting a variable for our new cartoon gifs
   var newCartoon = $(this).attr("data-name");
+  // Building our Query URL
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + newCartoon + "&limit=10&rating&api_key=dc6zaTOxFJmzC";
 
   // Creating an AJAX call for the specific cartoon button being clicked
@@ -91,7 +92,9 @@ $("#submit").on("click", function(event) {
 // This function handles the animation of the gifs
 function animateGifs(){
     // console.log("hi!");
+  // Variable to call the data state of the gifs
   var state = $(this).attr("data-state");
+  // If else statements controlling whether or not the gif animates
   if (state == "still"){
     $(this).attr("src", $(this).attr("data-animate"));
     $(this).attr("data-state", "animate");
@@ -103,10 +106,12 @@ function animateGifs(){
   } 
 };
 
-// adding a click listener to all of the elements with a class of movie 
+// adding a click listener to all of the elements with a class of cartoon 
 $(document).on("click", ".cartoon", displayGifs);
+// adding a click listener to all of the elements with a class of gif
 $(document).on("click", ".gif", animateGifs);
 
 // Calling the renderButtons function to display the intial buttons
 renderButtons();
+// Calling the animateGifs function
 animateGifs();
