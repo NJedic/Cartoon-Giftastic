@@ -34,11 +34,10 @@ function displayGifs(numGifs) {
 	 		// Making a <p> to hold and display the rating info
 	 		var p = $("<p>").text("Rating: " + rating);
 	 		// Making the gifImage an image
-	 		var gifImage = $("<img>");
+	 		var gifImage = $("<img class='gif'>");
 	 		// Assigning attributes to the gifImage variable
 	 		gifImage.attr({
-        class: "gif",
-        src: results[i].images.fixed_height.url,
+        src: results[i].images.fixed_height_still.url,
         "data-state": "still",
         "data-still": results[i].images.fixed_height_still.url,
         "data-animate": results[i].images.fixed_height.url, 
@@ -48,23 +47,8 @@ function displayGifs(numGifs) {
 	 		// Appending the Rating to each gif
 	 		gifsDiv.append(p);
 	 		// Appending the gifs to the DOM
-	  	$("#cartoonz").append(gifsDiv);
-
-      // This function handles the animation of the gifs
-      $(".gif").on("click", function animateGifs() {
-        var state = $(this).attr("data-state");
-        if (state == "still"){
-          $(this).attr("src", $(this).attr("data-animate"));
-          $(this).attr("data-state", "animate");
-        }
-
-        else {
-          $(this).attr("src", $(this).attr("data-still"));
-           $(this).attr("data-state", "still");
-        } 
-        animateGifs();
-      });
-  	};
+	  	$("#cartoonz").append(gifsDiv);  
+  	}; 
   });
 };
 
@@ -104,8 +88,25 @@ $("#submit").on("click", function(event) {
   $("#cartoonInput").val("");
 });
 
+// This function handles the animation of the gifs
+function animateGifs(){
+  console.log("hi!");
+  var state = $(this).attr("data-state");
+  if (state == "still"){
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  }
+
+  else {
+    $(this).attr("src", $(this).attr("data-still"));
+     $(this).attr("data-state", "still");
+  } 
+};
+
 // adding a click listener to all of the elements with a class of movie 
 $(document).on("click", ".cartoon", displayGifs);
+$(document).on("click", ".gif", animateGifs);
 
 // Calling the renderButtons function to display the intial buttons
 renderButtons();
+animateGifs();
