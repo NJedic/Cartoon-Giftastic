@@ -1,12 +1,19 @@
+// GLOBAL VARIABLES
+// ==================================================
+
 // Initial Array of cartoons
 var topics = ["Thundercats", "Bob's Burgers", "Adventure Time", "Scooby Doo", "The Powerpuff Girls", "Rugrats", "Doug", "Animaniacs", "He Man and The Masters of the Universe", "Captain Planet", "Spongebob Squarepants", "Cow and Chicken", "Johnny Bravo", "Space Ghost", "Hey, Arnold!", "Steven Universe", "Recess", "Jem", "Courage the Cowardly Dog", "Muppet Babies"];
 
-// functions to display the gifs and rating info
+
+// FUNCTIONS
+// ==================================================
+
+// This function displays the gifs 
 function displayGifs(numGifs) {
 
 
   var newCartoon = $(this).attr("data-name");
-  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + newCartoon + "&limit=10&rating&api_key=dc6zaTOxFJmzC";
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + newCartoon + "&limit=10&rating&api_key=dc6zaTOxFJmzC";
 
   // Creating an AJAX call for the specific cartoon button being clicked
   $.ajax({
@@ -28,19 +35,40 @@ function displayGifs(numGifs) {
 	 		var p = $("<p>").text("Rating: " + rating);
 	 		// Making the gifImage an image
 	 		var gifImage = $("<img>");
-	 		// Assigning a picture to the gifImage variable
-	 		gifImage.attr("src", results[i].images.fixed_height.url);
+	 		// Assigning attributes to the gifImage variable
+	 		gifImage.attr({
+        class: "gif",
+        src: results[i].images.fixed_height.url,
+        "data-state": "still",
+        "data-still": results[i].images.fixed_height_still.url,
+        "data-animate": results[i].images.fixed_height.url, 
+      });
 	 		//Appending the gif image to the gifsDiv
 	 		gifsDiv.append(gifImage);
 	 		// Appending the Rating to each gif
 	 		gifsDiv.append(p);
 	 		// Appending the gifs to the DOM
 	  	$("#cartoonz").append(gifsDiv);
-  	}
-	});
-}
 
-//Function for displaying movie data
+      // This function handles the animation of the gifs
+      $(".gif").on("click", function animateGifs() {
+        var state = $(this).attr("data-state");
+        if (state == "still"){
+          $(this).attr("src", $(this).attr("data-animate"));
+          $(this).attr("data-state", "animate");
+        }
+
+        else {
+          $(this).attr("src", $(this).attr("data-still"));
+           $(this).attr("data-state", "still");
+        } 
+        animateGifs();
+      });
+  	};
+  });
+};
+
+// This function for displays the cartoon buttons
 function renderButtons() {
 
   // empty the cartoonButtons div prior to rendering new buttons
@@ -62,7 +90,7 @@ function renderButtons() {
   }
 }
 
-// This function handles events where one button is clicked
+// This function handles events where a button is clicked
 $("#submit").on("click", function(event) {
 	// Prevents the page from refreshing on click 
   event.preventDefault();
@@ -76,7 +104,7 @@ $("#submit").on("click", function(event) {
   $("#cartoonInput").val("");
 });
 
-//
+// adding a click listener to all of the elements with a class of movie 
 $(document).on("click", ".cartoon", displayGifs);
 
 // Calling the renderButtons function to display the intial buttons
