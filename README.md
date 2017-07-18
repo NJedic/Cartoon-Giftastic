@@ -1,10 +1,10 @@
 # Cartoon Giftastic!
 
-![Teenage Mutant Ninja Turtle Typing](https://media.giphy.com/media/cFdHXXm5GhJsc/giphy.gif)
+![Dee Dee Typing](https://media.giphy.com/media/11BbGyhVmk4iLS/giphy.gif)
 
 ## Overview
 
-A UI that grabs all of your favorite cartoon gifs and compiles them in one place! 
+A UI that grabs All of your Favorite Cartoon Gifs and compiles them in one place using the Giphy API! 
 
 ## Getting Started
 
@@ -18,6 +18,8 @@ A UI that grabs all of your favorite cartoon gifs and compiles them in one place
 ***
 
 **PRO TIP:** Click on the Gifs to watch them move!
+
+![South Park Mouse Click](https://media.giphy.com/media/11BbGyhVmk4iLS/giphy.gif)
 
 
 [here!]: https://njedic.github.io/Giftastic/
