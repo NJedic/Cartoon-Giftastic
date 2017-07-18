@@ -19,7 +19,7 @@ A UI that grabs All of your Favorite Cartoon Gifs and compiles them in one place
 
 **PRO TIP:** Click on the Gifs to watch them move!
 
-![South Park Mouse Click](https://media.giphy.com/media/11BbGyhVmk4iLS/giphy.gif)
+![South Park Mouse Click](https://media.giphy.com/media/l0HlL2I8DbNa6JCJa/giphy.gif)
 
 
 [here!]: https://njedic.github.io/Giftastic/
