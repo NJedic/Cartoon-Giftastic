@@ -37,6 +37,7 @@ Click on any button (in this example, Muppet Babies) to display the gifs from th
 
 ![Muppet Babies clicked](/assets/images/giftastic2.jpg)
 
+
 * Creating a Button:
 
 Type a Cartoon into the Search Box (in this example, Pepper Ann) and hit "Submit" to add the button to the roster! You can that click that button to display the gifs from the Giphy API associated with it.
@@ -46,9 +47,9 @@ Type a Cartoon into the Search Box (in this example, Pepper Ann) and hit "Submit
 
 ![Display New Button Gifs](/assets/images/giftastic5.jpg)
 
-**
+***
 
-*** PRO TIP: click on the displayed gifs to make them move!
+**PRO TIP:** click on the displayed gifs to make them move!
 ![South Park Mouse Click](https://media.giphy.com/media/l0HlL2I8DbNa6JCJa/giphy.gif)
 
 [here!]: https://njedic.github.io/Cartoon-Giftastic/
